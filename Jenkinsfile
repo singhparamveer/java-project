@@ -30,7 +30,7 @@ options {
   }
   stage ('Deploy on Apache'){
            steps {
-     sh 'cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/all'
+     sh 'cp dist/rectangle* /var/www/html/all'
 }
 }
  stage ('Test on Debain-Docker'){
