@@ -21,13 +21,17 @@ options {
       steps {
         sh 'ant -f build.xml -v'
       }
-  }
-}
-post  {
-   always {
+
+ post  {
+   success {
        archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
-
 }
 }
-
+  }
+  stage ('Deploy on Apache'){
+           steps {
+     sh 'cp dist/rectangle* /var/www/html/all'
+}
+}
+}
 }
