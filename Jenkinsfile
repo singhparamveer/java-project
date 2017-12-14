@@ -30,7 +30,17 @@ options {
   }
   stage ('Deploy on Apache'){
            steps {
+     sh 'rm -f /var/www/html/all/*'
      sh 'cp dist/rectangle* /var/www/html/all'
+}
+}
+ stage ('Test on Debain-Docker'){
+       agent {
+      docker 'openjdk:8u151-jre'
+}
+steps  {
+ sh  'wget http://18.271.243.103/all/rectangle*'
+ sh 'java -jar rectangle*  4 5'
 }
 }
 }
