@@ -30,8 +30,7 @@ options {
   }
   stage ('Deploy on Apache'){
            steps {
-     sh 'rm -f /var/www/html/all/*'
-     sh 'cp dist/rectangle* /var/www/html/all'
+     sh 'cp dist/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/all'
 }
 }
  stage ('Test on Debain-Docker'){
@@ -39,7 +38,7 @@ options {
       docker 'openjdk:8u151-jre'
 }
 steps  {
- sh  'wget http://18.217.243.103/all/rectangle*'
+ sh  'wget http://18.217.243.103/all/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar'
  sh 'java -jar rectangle*  4 5'
 }
 }
