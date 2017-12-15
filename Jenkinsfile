@@ -42,6 +42,7 @@ steps  {
   sh  "wget http://18.217.243.103/all/rectangle_${env.BUILD_NUMBER}.jar"
   sh  'sleep 1'
   sh 'java -jar rectangle*  4 5'
+  sh 'sleep 1'
 }
 }
 stage('Promote To Green'){
