@@ -41,7 +41,7 @@ steps  {
   sh  'sleep 1'
   sh  "wget http://18.217.243.103/all/rectangle_${env.BUILD_NUMBER}.jar"
   sh  'sleep 1'
-  sh 'java -jar rectangle*  4 5'
+  sh 'java -jar rectangle_${env.BUILD_NUMBER}.jar 4 5'
   sh 'sleep 1'
 }
 }
