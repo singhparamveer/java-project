@@ -48,20 +48,5 @@ sh "cd /var/www/html/all/;(ls -t|head -n 5;ls)|sort| uniq -u | xargs rm"
 }
 
 }
- stage('Promote Development Branch to Master') {
-      steps {
-        echo "Stashing Any Local Changes"
-        sh 'git stash'
-        echo "Checking Out Development Branch"
-        sh 'git checkout devlopment'
-        echo 'Checking Out Master Branch'
-        sh 'git pull origin'
-        sh 'git checkout master'
-        echo 'Merging Development into Master Branch'
-        sh 'git merge devlopment'
-        echo 'Pushing to Origin Master'
-        sh 'git push origin master'
-      }
-}
 }
 }
