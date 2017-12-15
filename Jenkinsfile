@@ -38,10 +38,9 @@ options {
       docker 'openjdk:8u151-jre'
 }
 steps  {
-  sh  'sleep 1'
   sh  "wget http://18.217.243.103/all/rectangle_${env.BUILD_NUMBER}.jar"
-  sh 'java -jar rectangle_${env.BUILD_NUMBER}.jar 4 5'
-  sh 'sleep 1'
+  sh  "sleep 1"
+  sh  "java -jar rectangle_${env.BUILD_NUMBER}.jar 4 5"
 }
 }
 stage('Promote To Green'){
