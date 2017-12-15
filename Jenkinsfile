@@ -52,9 +52,6 @@ sh "cd /var/www/html/all/;(ls -t|head -n 5;ls)|sort| uniq -u | xargs rm"
 
 }
  stage('Promote Development Branch to Master') {
-      when {
-        branch 'development'
-      }
       steps {
         echo "Stashing Any Local Changes"
         sh 'git stash'
