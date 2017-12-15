@@ -46,6 +46,8 @@ steps  {
 stage('Promote To Green'){
   steps {
 sh "cp /var/www/html/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/green"
+sh "cd /var/www/html/all;(ls -t|head -n 5;ls)|sort| uniq -u | xargs rm"
+
 }
 
 }
