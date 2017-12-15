@@ -44,5 +44,11 @@ steps  {
   sh 'java -jar rectangle*  4 5'
 }
 }
+stage('Promote To Green'){
+  steps {
+sh "cp /var/www/hmtl/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/green"
+}
+
+}
 }
 }
